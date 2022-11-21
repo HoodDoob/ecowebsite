@@ -18,10 +18,12 @@ function App() {
   return (
     <div className="App">
       <Hero handleClick={handleClick} />
-      <Description />
+      <div ref={ref}>
+        <Description />
+      </div>
+
       <FormLayout />
       <Results />
-      <div ref={ref}>scroll Me</div>
     </div>
   );
 }

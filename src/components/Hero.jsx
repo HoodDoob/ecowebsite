@@ -1,8 +1,6 @@
-import React, { useRef } from "react";
-
 function Hero(props) {
   return (
-    <div>
+    <div className="hero">
       <h1 id="heroText">
         CALCULATE <span id="heroExtra">YOUR</span> CARBON FOOTPRINT
       </h1>

@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef } from "react";
+import { React, useEffect, useRef, forwardRef } from "react";
 
 const boxVariant = {
   visible: { opacity: 1, scale: 1, transition: { duration: 2 } },
@@ -33,9 +33,8 @@ const Box = ({ num }) => {
 };
 
 export default function Description(props) {
-  const descRef = useRef(null);
-  return (
-    <div className="App" ref={props.descRef}>
+  const TestDescription = forwardRef((props, ref) => (
+    <div className="App" ref={props.ref}>
       <Box
         num="But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born.
 "
@@ -43,5 +42,6 @@ export default function Description(props) {
       <Box num="No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because of those..." />
       <Box num="...who do not know." />
     </div>
-  );
+  ));
+  return <TestDescription ref={props.ref}></TestDescription>;
 }
