@@ -8,6 +8,10 @@ function FormLayout() {
   function calculate(e) {
     e.preventDefault();
 
+    if (theForm.form-control.input.value === "") {
+        theForm.form-control.input.value == 0;
+    }
+
     //* calculating total hours and minutes on the apps *//
     const instagramYearly = parseInt(theForm.current.elements.instagram.value)*365;
     const tiktokYearly = parseInt(theForm.current.elements.tiktok.value)*365;
@@ -16,15 +20,11 @@ function FormLayout() {
 
     const totalMinutes = instagramYearly + tiktokYearly + streamingYearly;
 
-    function toHoursAndMinutes(totalMinutes) {
-      const days = Math.floor(totalMinutes / 60 / 24);
-      const hours = days % 24;
-      const minutes = totalMinutes % 60;
-    
-      return { days, hours, minutes };
-    }
+    const days = Math.floor(totalMinutes / 60 / 24);
+    const hours = days % 24;
+    const minutes = totalMinutes % 60;
 
-    console.log("Minutes you waste on the internet every year: ", toHoursAndMinutes(totalMinutes));
+    console.log(`You waste ${days} days, ${hours} hours and ${minutes} minutes on the internet every year`);
 
 
 
@@ -36,7 +36,10 @@ function FormLayout() {
 
     const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2;
 
-    console.log(totalCo2, "grams of Co2 bitch");
+    const kilograms = Math.floor(totalCo2 / 1000);
+    const grams = totalCo2 % 1000;
+
+    console.log(`That's ${kilograms} kilograms and ${grams} grams of Co2 bitch`);
 
 }
 
@@ -45,22 +48,22 @@ function FormLayout() {
 
     <div className='form-control'>
         <label htmlFor="form-name">Instagram usage</label>
-        <input required type="number" name="instagram" id="form-instagram"/>
+        <input type="number" name="instagram" id="form-instagram"/>
     </div>
 
     <div className='form-control'>
         <label htmlFor="form-email">TikTok usage</label>
-        <input required type="number" name="tiktok" id="form-tiktok"/>
+        <input type="number" name="tiktok" id="form-tiktok"/>
     </div>
 
     <div className='form-control'>
         <label htmlFor="form-email">Streaming service usage</label>
-        <input required type="number" name="streaming" id="form-streaming"/>
+        <input type="number" name="streaming" id="form-streaming"/>
     </div>
 
     <div className='form-control'>
         <label htmlFor="form-email">Unread emails</label>
-        <input required type="number" name="email" id="form-email"/>
+        <input type="number" name="email" id="form-email"/>
     </div>
 
 
