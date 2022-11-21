@@ -3,14 +3,17 @@ import {useRef} from 'react'
 
 function FormLayout() {
   const theForm = useRef(null);
+  const input = useRef(null);
   
 
   function calculate(e) {
     e.preventDefault();
 
-    if (theForm.form-control.input.value === "") {
-        theForm.form-control.input.value == 0;
+    if (theForm.current.elements.input === "") {
+        theForm.current.elements.input = 0;
     }
+
+    console.log(input.value)
 
     //* calculating total hours and minutes on the apps *//
     const instagramYearly = parseInt(theForm.current.elements.instagram.value)*365;
@@ -48,7 +51,7 @@ function FormLayout() {
 
     <div className='form-control'>
         <label htmlFor="form-name">Instagram usage</label>
-        <input type="number" name="instagram" id="form-instagram"/>
+        <input ref={input} type="number" name="instagram" id="form-instagram"/>
     </div>
 
     <div className='form-control'>
