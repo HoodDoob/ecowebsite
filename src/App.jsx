@@ -1,15 +1,21 @@
 import { useState } from "react";
-<<<<<<< HEAD
-import "./App.css";
-=======
 import "./App.scss";
->>>>>>> c9598047fc5c08888d2750419f8ec29544502d53
+import Hero from "./components/Hero";
+import Description from "./components/Description";
+import FormLayout from "./components/FormLayout";
+import Results from "./components/Results";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  return;
-  <div className="App"></div>;
+  return (
+    <div className="App">
+      <Hero />
+      <Description />
+      <FormLayout />
+      <Results />
+    </div>
+  );
 }
 
 export default App;
