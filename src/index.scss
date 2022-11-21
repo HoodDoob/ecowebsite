@@ -33,10 +33,22 @@ body {
 }
 
 h1 {
+  font-size: 5.2em;
+  line-height: 1.1;
+  // margin-top: 30vh;
+  // margin-bottom: 10vh;
+}
+h2 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
+.box {
+  padding-top: 25vh;
+  margin-bottom: 30vh;
+}
+// .btnHero {
+//   margin-bottom: 20vh;
+// }
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +66,9 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.hero {
+  height: 100vh;
 }
 
 @media (prefers-color-scheme: light) {
