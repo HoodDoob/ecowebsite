@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 
-function Hero() {
+function Hero(props) {
   return (
     <div>
-      <h1>CALCULATE YOUR CARBON FOOTPRINT</h1>
-      <p>⬇</p>
+      <h1 id="heroText">
+        CALCULATE <span id="heroExtra">YOUR</span> CARBON FOOTPRINT
+      </h1>
+      <button onClick={() => props.handleClick()}>Scroll to commentout</button>
     </div>
   );
 }
