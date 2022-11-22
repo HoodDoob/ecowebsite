@@ -94,14 +94,15 @@ function Form(props) {
     }
 
     const totalTime = instagramYearly + tiktokYearly + streamingYearly;
+    const totalAmount = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2;
     nextData.push({
         name: "total",
-        time: minutesToHours(totalTime)
+        time: minutesToHours(totalTime),
+        amount: gramsToKilos(totalAmount),
     }
     )
 
     props.setData(nextData);
-    console.log("yes we submitted");
   }
 
   function popNumber() {
