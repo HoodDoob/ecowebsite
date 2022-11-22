@@ -1,62 +1,65 @@
-import React from 'react'
-import {useRef} from 'react'
+import React from "react";
+import { useRef, useState } from "react";
 
 function Form(props) {
-    const theForm = useRef(null);
-/*     const array = [{
+  const [buttonVisible, setButtonVisible] = useState(false);
+  const theForm = useRef(null);
+  /*     const array = [{
         name: "",
         time: "",
         amount: "",
     }] */
 
-    function calculate(e) {
-        e.preventDefault();
-        const nextData = [];
+  function calculate(e) {
+    e.preventDefault();
+    const nextData = [];
 
     //* calculating total hours and minutes on the apps *//
-    const instagramYearly = parseInt(theForm.current.elements.instagram.value) * 365;
+    const instagramYearly =
+      parseInt(theForm.current.elements.instagram.value) * 365;
     const instagramCo2 = instagramYearly * 1.05;
 
-        if (instagramYearly > 0) {
-            nextData.push({
-            name: "instagram",
-            time: instagramYearly,
-            amount: instagramCo2,
-        });
-        }
+    if (instagramYearly > 0) {
+      nextData.push({
+        name: "instagram",
+        time: instagramYearly,
+        amount: instagramCo2,
+      });
+    }
 
     const tiktokYearly = parseInt(theForm.current.elements.tiktok.value) * 365;
     const tiktokCo2 = tiktokYearly * 2.63;
 
-        if (tiktokYearly > 0) {
-            nextData.push({
-            name: "tiktok",
-            time: tiktokYearly,
-            amount: tiktokCo2,
-        });
-        }
+    if (tiktokYearly > 0) {
+      nextData.push({
+        name: "tiktok",
+        time: tiktokYearly,
+        amount: tiktokCo2,
+      });
+    }
 
-    const streamingYearly = parseInt(theForm.current.elements.streaming.value) * 365;
+    const streamingYearly =
+      parseInt(theForm.current.elements.streaming.value) * 365;
     const streamingCo2 = streamingYearly * 91;
 
-        if (streamingYearly > 0) {
-            nextData.push({
-            name: "streaming",
-            time: streamingYearly,
-            amount: streamingCo2,
-        });
-        }
+    if (streamingYearly > 0) {
+      nextData.push({
+        name: "streaming",
+        time: streamingYearly,
+        amount: streamingCo2,
+      });
+    }
 
     const email = parseInt(theForm.current.elements.email.value);
     const emailCo2 = email * 0.3;
 
-        if (email > 0) {
-            nextData.push({
-            name: "email",
-            time: 0,
-            amount: emailCo2,
-        });
-        }
+    if (email > 0) {
+      nextData.push({
+        name: "email",
+        time: 0,
+        amount: emailCo2,
+      });
+    }
 
     const totalMinutes = instagramYearly + tiktokYearly + streamingYearly;
 
@@ -77,41 +80,59 @@ function Form(props) {
       `That's ${kilograms} kilograms and ${grams} grams of Co2 bitch`
     );
 
-  props.setData(nextData);
+    props.setData(nextData);
   }
 
+  function popNumber() {
+    setButtonVisible(true);
+    console.log("pump up the button");
+  }
   return (
     <form ref={theForm} onSubmit={calculate}>
       <div className="form-control">
         <label htmlFor="form-name">Instagram usage</label>
-        <input type="number" name="instagram" id="form-instagram"/>
-    </div>
+        <input
+          type="number"
+          name="instagram"
+          id="form-instagram"
+          onInput={popNumber}
+        />
+      </div>
 
       <div className="form-control">
         <label htmlFor="form-email">TikTok usage</label>
-        <input type="number" name="tiktok" id="form-tiktok" />
+        <input
+          type="number"
+          name="tiktok"
+          id="form-tiktok"
+          onInput={popNumber}
+        />
       </div>
 
       <div className="form-control">
         <label htmlFor="form-email">Streaming service usage</label>
-        <input type="number" name="streaming" id="form-streaming" />
+        <input
+          type="number"
+          name="streaming"
+          id="form-streaming"
+          onInput={popNumber}
+        />
       </div>
 
       <div className="form-control">
         <label htmlFor="form-email">Unread emails</label>
-        <input type="number" name="email" id="form-email" />
+        <input type="number" name="email" id="form-email" onInput={popNumber} />
       </div>
-
-      <button>Calculate</button>
+      {buttonVisible && (
+        <button onClick={() => props.formCalculate()}>Calculate</button>
+      )}
     </form>
-    )
+  );
 }
 
-export default Form
+export default Form;
 
-
-
-  /*   instagram: theForm.current.elements.instagram.value,
+/*   instagram: theForm.current.elements.instagram.value,
         tiktok: theForm.current.elements.tiktok.value,
         streaming: theForm.current.elements.streaming.value,
         emails: theForm.current.elements.email.value,
