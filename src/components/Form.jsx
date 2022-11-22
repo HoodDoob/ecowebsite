@@ -15,20 +15,22 @@ function Form(props) {
     const nextData = [];
 
     //* calculating total hours and minutes on the apps *//
-    const instagramYearly =
-      parseInt(theForm.current.elements.instagram.value) * 365;
-    const instagramCo2 = instagramYearly * 1.05;
 
+    let instagramYearly = parseInt(theForm.current.elements.instagram.value) * 365;
+    let instagramCo2 = instagramYearly * 1.05;
     if (instagramYearly > 0) {
-      nextData.push({
-        name: "instagram",
-        time: minutesToHours(instagramYearly),
-        amount: gramsToKilos(instagramCo2),
-      });
+        nextData.push({
+            name: "instagram",
+            time: minutesToHours(instagramYearly),
+            amount: gramsToKilos(instagramCo2),
+          });
+    } else {
+        instagramYearly = 0;
+        instagramCo2 = 0;
     }
 
-    const tiktokYearly = parseInt(theForm.current.elements.tiktok.value) * 365;
-    const tiktokCo2 = tiktokYearly * 2.63;
+    let tiktokYearly = parseInt(theForm.current.elements.tiktok.value) * 365;
+    let tiktokCo2 = tiktokYearly * 2.63;
 
     if (tiktokYearly > 0) {
       nextData.push({
@@ -36,11 +38,13 @@ function Form(props) {
         time: minutesToHours(tiktokYearly),
         amount: gramsToKilos(tiktokCo2),
       });
+    } else {
+        tiktokYearly = 0;
+        tiktokCo2 = 0;
     }
 
-    const streamingYearly =
-      parseInt(theForm.current.elements.streaming.value) * 365;
-    const streamingCo2 = streamingYearly * 91;
+    let streamingYearly = parseInt(theForm.current.elements.streaming.value) * 365;
+    let streamingCo2 = streamingYearly * 91;
 
     if (streamingYearly > 0) {
       nextData.push({
@@ -48,10 +52,13 @@ function Form(props) {
         time: minutesToHours(streamingYearly),
         amount: gramsToKilos(streamingCo2),
       });
+    } else {
+        streamingYearly = 0;
+        streamingCo2 = 0;
     }
 
-    const email = parseInt(theForm.current.elements.email.value);
-    const emailCo2 = email * 0.3;
+    let email = parseInt(theForm.current.elements.email.value);
+    let emailCo2 = email * 0.3;
 
     if (email > 0) {
       nextData.push({
@@ -59,6 +66,9 @@ function Form(props) {
         time: 0,
         amount: gramsToKilos(emailCo2),
       });
+    } else {
+        email = 0;
+        emailCo2 = 0;
     }
 
     function minutesToHours(time) {
@@ -83,29 +93,12 @@ function Form(props) {
       };
     }
 
-    if (instagramYearly === "") {
-      instagramYearly = 0;
-    }
-    const totalMinutes = instagramYearly + tiktokYearly + streamingYearly;
-    const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2;
-
-    function totalAmount() {
-      let sum = 0;
-
-      nextData.forEach((obj) => {
-        sum += obj.time;
-      });
-
-      return sum;
-    }
-
-    console.log(totalAmount());
-
+    const totalTime = instagramYearly + tiktokYearly + streamingYearly;
     nextData.push({
-      name: "total",
-      time: minutesToHours(totalMinutes),
-      amount: gramsToKilos(totalCo2),
-    });
+        name: "total",
+        time: minutesToHours(totalTime)
+    }
+    )
 
     props.setData(nextData);
     console.log("yes we submitted");

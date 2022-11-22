@@ -5,7 +5,8 @@ import Description from "./components/Description";
 import FormLayout from "./components/FormLayout";
 
 function App() {
-  const ref = useRef();
+  const ref = useRef();  
+  const [data, setData] = useState([]);
 
   const handleClick = () => {
     console.log("you passed ufnction up");
@@ -21,7 +22,7 @@ function App() {
         <Description />
       </div>
 
-      <FormLayout/>
+      <FormLayout data={data} setData={setData}/>
     </div>
   );
 }

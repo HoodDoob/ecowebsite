@@ -4,14 +4,13 @@ import Form from "./Form";
 import Results from "./Results";
 import { motion, AnimatePresence } from "framer-motion";
 
-function FormLayout() {
+function FormLayout(props) {
   const [formFirstState, setFormFirstState] = useState(true);
 
   function formCalculate() {
     setFormFirstState(!formFirstState);
     console.log("change the state to " + formFirstState);
   }
-  const [data, setData] = useState([]);
 
   return (
     <>
@@ -30,7 +29,7 @@ function FormLayout() {
             exit={{ x: "-150%", opacity: 1, scale: 1 }}
             initial={{ x: "-150%", opacity: 1, scale: 1 }}
           >
-            <Form setData={setData} formCalculate={formCalculate} />
+            <Form setData={props.setData} formCalculate={formCalculate} />
           </motion.div>{" "}
         </AnimatePresence>
       ) : (
@@ -48,7 +47,7 @@ function FormLayout() {
               transition: { duration: 0.5 },
             }}
           >
-            <Results data={data} formCalculate={formCalculate} />
+            <Results data={props.data} formCalculate={formCalculate} />
           </motion.div>
         </AnimatePresence>
       )}
