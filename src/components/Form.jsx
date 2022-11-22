@@ -20,8 +20,8 @@ function Form(props) {
         if (instagramYearly > 0) {
             nextData.push({
             name: "instagram",
-            time: instagramYearly,
-            amount: instagramCo2,
+            time: minutesToHours(instagramYearly),
+            amount: gramsToKilos(instagramCo2),
         });
         }
 
@@ -31,8 +31,8 @@ function Form(props) {
         if (tiktokYearly > 0) {
             nextData.push({
             name: "tiktok",
-            time: tiktokYearly,
-            amount: tiktokCo2,
+            time: minutesToHours(tiktokYearly),
+            amount: gramsToKilos(tiktokCo2),
         });
         }
 
@@ -42,8 +42,8 @@ function Form(props) {
         if (streamingYearly > 0) {
             nextData.push({
             name: "streaming",
-            time: streamingYearly,
-            amount: streamingCo2,
+            time: minutesToHours(streamingYearly),
+            amount: gramsToKilos(streamingCo2),
         });
         }
 
@@ -54,30 +54,58 @@ function Form(props) {
             nextData.push({
             name: "email",
             time: 0,
-            amount: emailCo2,
+            amount: gramsToKilos(emailCo2),
         });
         }
 
+
+    function minutesToHours(time) {
+        const days = Math.floor(time / 60 / 24);
+        const hours = days % 24;
+        const minutes = time % 60;
+
+        return {
+            days: days,
+            hours: hours,
+            minutes: minutes
+        }
+    }
+
+    function gramsToKilos(amount) {
+        const kilograms = Math.floor(amount / 1000);
+        const grams = amount % 1000;
+
+        return {
+            kilograms: kilograms,
+            grams: grams
+        }
+    }
+
+/*     if (instagramYearly === "") {
+        instagramYearly = 0;
+    }
     const totalMinutes = instagramYearly + tiktokYearly + streamingYearly;
+    const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2; */
 
-    const days = Math.floor(totalMinutes / 60 / 24);
-    const hours = days % 24;
-    const minutes = totalMinutes % 60;
+    function totalAmount() {
+        let sum = 0;
 
-    console.log(
-      `You waste ${days} days, ${hours} hours and ${minutes} minutes on the internet every year`
-    );
+        nextData.forEach(obj => {
+            sum += obj.time
+        })
 
-    const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2;
+        return sum
+    }
 
-    const kilograms = Math.floor(totalCo2 / 1000);
-    const grams = totalCo2 % 1000;
+    console.log(totalAmount())
 
-    console.log(
-      `That's ${kilograms} kilograms and ${grams} grams of Co2 bitch`
-    );
+        nextData.push({
+        name: "total",
+        time: minutesToHours(totalMinutes),
+        amount: gramsToKilos(totalCo2),
+    });
 
-  props.setData(nextData);
+    props.setData(nextData);
   }
 
   return (
