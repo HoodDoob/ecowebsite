@@ -3,7 +3,6 @@ import "./App.scss";
 import Hero from "./components/Hero";
 import Description from "./components/Description";
 import FormLayout from "./components/FormLayout";
-import Results from "./components/Results";
 
 function App() {
   const ref = useRef();
@@ -22,8 +21,7 @@ function App() {
         <Description />
       </div>
 
-      <FormLayout />
-      <Results />
+      <FormLayout/>
     </div>
   );
 }
