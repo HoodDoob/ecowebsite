@@ -7,11 +7,11 @@ const variant1 = {
   hidden: { opacity: 0, scale: 0 },
 };
 const variant2 = {
-  visible: { opacity: 1, scale: 2, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
   hidden: { opacity: 0, scale: 0 },
 };
 const variant3 = {
-  visible: { opacity: 1, scale: 3, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
   hidden: { opacity: 0, scale: 0 },
 };
 
