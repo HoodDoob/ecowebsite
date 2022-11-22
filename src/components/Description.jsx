@@ -2,12 +2,20 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { React, useEffect, useRef, forwardRef } from "react";
 
-const boxVariant = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 2 } },
+const variant1 = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  hidden: { opacity: 0, scale: 0 },
+};
+const variant2 = {
+  visible: { opacity: 1, scale: 2, transition: { duration: 1 } },
+  hidden: { opacity: 0, scale: 0 },
+};
+const variant3 = {
+  visible: { opacity: 1, scale: 3, transition: { duration: 1 } },
   hidden: { opacity: 0, scale: 0 },
 };
 
-const Box = ({ num }) => {
+const BoxOne = ({ desc }) => {
   const control = useAnimation();
   const [ref, inView] = useInView();
 
@@ -23,25 +31,69 @@ const Box = ({ num }) => {
     <motion.div
       className="box"
       ref={ref}
-      variants={boxVariant}
+      variants={variant1}
       initial="hidden"
       animate={control}
     >
-      <h2>{num}</h2>
+      <h2 className="scrollTest">{desc}</h2>
+    </motion.div>
+  );
+};
+const BoxTwo = ({ desc }) => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
+  return (
+    <motion.div
+      className="box"
+      ref={ref}
+      variants={variant2}
+      initial="hidden"
+      animate={control}
+    >
+      <h2 className="scrollTest">{desc}</h2>
+    </motion.div>
+  );
+};
+const BoxThree = ({ desc }) => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
+  return (
+    <motion.div
+      className="box"
+      ref={ref}
+      variants={variant3}
+      initial="hidden"
+      animate={control}
+    >
+      <h2 className="scrollTest">{desc}</h2>
     </motion.div>
   );
 };
 
 export default function Description(props) {
-  const TestDescription = forwardRef((props, ref) => (
-    <div className="App" ref={props.ref}>
-      <Box
-        num="But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born.
-"
-      />
-      <Box num="No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because of those..." />
-      <Box num="...who do not know." />
+  return (
+    <div ref={props.ref}>
+      <BoxOne desc="But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born." />
+      <BoxTwo desc="No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because of those..." />
+      <BoxThree desc="...who do not know." />
     </div>
-  ));
-  return <TestDescription ref={props.ref}></TestDescription>;
+  );
 }
