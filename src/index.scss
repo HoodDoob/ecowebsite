@@ -35,7 +35,7 @@ body {
 h1 {
   font-size: 5.2em;
   line-height: 1.1;
-  // margin-top: 30vh;
+  padding-top: 30vh;
   // margin-bottom: 10vh;
 }
 h2 {
@@ -43,12 +43,19 @@ h2 {
   line-height: 1.1;
 }
 .box {
+  height: 100vh;
+  width: 100vw;
   padding-top: 25vh;
-  margin-bottom: 30vh;
+  // margin-bottom: 30vh;
+  border: solid #535bf2 3px;
+  scroll-snap-align: start;
 }
-// .btnHero {
-//   margin-bottom: 20vh;
-// }
+.descriptionTest {
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+  overflow-y: scroll;
+  border: solid #839d51 5px;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -69,6 +76,10 @@ button:focus-visible {
 }
 .hero {
   height: 100vh;
+}
+.y.mandatoryScrollSnapping {
+  scroll-snap-type: y mandatory;
+  // background-color: #646cff;
 }
 
 @media (prefers-color-scheme: light) {
