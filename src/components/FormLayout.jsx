@@ -50,8 +50,8 @@ function FormLayout() {
             }}
             className="inputWrapper"
             transition={{ duration: 0.5 }}
-            exit={{ x: -1000, opacity: 1, scale: 1 }}
-            initial={{ x: -1000, opacity: 1, scale: 1 }}
+            exit={{ x: "-150%", opacity: 1, scale: 1 }}
+            initial={{ x: "-150%", opacity: 1, scale: 1 }}
             // variants={variants}
           >
             <Form setData={setData} formCalculate={formCalculate} />
@@ -61,12 +61,12 @@ function FormLayout() {
         <AnimatePresence>
           <motion.div
             key="otp"
-            initial={{ x: 1000, opacity: 1, scale: 1 }}
+            initial={{ x: "150%", opacity: 1, scale: 1 }}
             animate={{ x: 0, opacity: 1, scale: 1 }}
             className="resultWrapper"
             transition={{ duration: 1 }}
             exit={{
-              x: 1000,
+              x: "150%",
               opacity: 1,
               scale: 1,
               transition: { duration: 0.5 },
