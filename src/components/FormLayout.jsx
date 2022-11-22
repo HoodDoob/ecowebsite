@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Form from "./Form";
 import Results from "./Results";
-// import { useTransition, animated } from "react-spring";
 import { motion, AnimatePresence } from "framer-motion";
 
 function FormLayout() {

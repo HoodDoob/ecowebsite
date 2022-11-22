@@ -7,7 +7,7 @@ function Results(props) {
         hello that is the section in which oyu will get some results so be happy
         pal
       </p>
-      <button onClick={() => props.formCalculate()}>go bakc</button>
+      <button onClick={() => props.formCalculate()}>Calculate</button>
     </div>
   );
 }

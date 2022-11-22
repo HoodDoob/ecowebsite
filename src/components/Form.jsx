@@ -83,11 +83,11 @@ function Form(props) {
       };
     }
 
-    /*     if (instagramYearly === "") {
-        instagramYearly = 0;
+    if (instagramYearly === "") {
+      instagramYearly = 0;
     }
     const totalMinutes = instagramYearly + tiktokYearly + streamingYearly;
-    const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2; */
+    const totalCo2 = instagramCo2 + tiktokCo2 + streamingCo2 + emailCo2;
 
     function totalAmount() {
       let sum = 0;
@@ -108,6 +108,7 @@ function Form(props) {
     });
 
     props.setData(nextData);
+    console.log("yes we submitted");
   }
 
   function popNumber() {
@@ -158,9 +159,3 @@ function Form(props) {
 }
 
 export default Form;
-
-/*   instagram: theForm.current.elements.instagram.value,
-        tiktok: theForm.current.elements.tiktok.value,
-        streaming: theForm.current.elements.streaming.value,
-        emails: theForm.current.elements.email.value,
- */
