@@ -16,7 +16,7 @@ function Results(props) {
         <img
           style={myStyle}
           id="horseman"
-          src="./src/assets/manOnAHorseWhite.svg"
+          src="manOnAHorseWhite.svg"
           alt="horseman"
         ></img>
         <div className="scene">
