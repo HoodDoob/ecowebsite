@@ -35,7 +35,7 @@ const BoxOne = ({ desc }) => {
       initial="hidden"
       animate={control}
     >
-      <h2 className="scrollTest">{desc}</h2>
+      <h2 className="scrollTest  box2 templateGLOW">{desc}</h2>
     </motion.div>
   );
 };
@@ -53,13 +53,13 @@ const BoxTwo = ({ desc }) => {
 
   return (
     <motion.div
-      className="box"
+      className="box "
       ref={ref}
       variants={variant2}
       initial="hidden"
       animate={control}
     >
-      <h2 className="scrollTest">{desc}</h2>
+      <h2 className="scrollTest templateGLOW">{desc}</h2>
     </motion.div>
   );
 };
@@ -83,7 +83,7 @@ const BoxThree = ({ desc }) => {
       initial="hidden"
       animate={control}
     >
-      <h2 className="scrollTest">{desc}</h2>
+      <h2 className="scrollTest templateGLOW">{desc}</h2>
     </motion.div>
   );
 };

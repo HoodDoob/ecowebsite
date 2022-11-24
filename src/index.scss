@@ -39,32 +39,33 @@ body {
 h1 {
   font-size: 5.2em;
   line-height: 1.1;
-  padding-top: 25vh;
-  color: #940000;
+  padding-top: 10vh;
+  color: #76f483;
   padding-left: 5%;
   padding-right: 5%;
 }
 .arrow {
   font-size: 5.2em;
-  padding-top: 10vh;
+  padding-top: 3vh;
   animation: arrow 1s infinite;
   animation-direction: alternate;
   font-weight: 600;
   cursor: pointer;
-  color: #940000;
+  color: #76f483;
 }
 @keyframes arrow {
   0% {
     /* margin-left: 0%; */
-    text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px #fff, 0 0 30px #e60000,
-      0 0 20px #2e00e6, 0 0 30px #3a00e6, 0 0 20px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #349f3f, 0 0 20px #039712, 0 0 30px#039712,
+      0 0 20px #039712, 0 0 30px #039712, 0 0 20px #349f3f, 0 0 70px #349f3f;
+    transform: translateY(10vh);
   }
 
   100% {
     /* margin-left: 200%; */
-    text-shadow: 0 0 5px #fff, 0 0 10px #ff4d4d, 0 0 15px #ff4da6,
-      0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6;
-    padding-top: 0vh;
+    text-shadow: 0 0 5px #039712, 0 0 10px #039712, 0 0 15px #349f3f,
+      0 0 20px #349f3f, 0 0 25px #039712, 0 0 30px #039712, 0 0 35px #039712;
+    // transform: translateY(100px);
   }
 }
 .templateGLOW {
@@ -81,14 +82,14 @@ h1 {
 @keyframes templateGLOW {
   0% {
     /* margin-left: 0%; */
-    text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px #fff, 0 0 30px #e60000,
-      0 0 20px #2e00e6, 0 0 30px #3a00e6, 0 0 20px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #349f3f, 0 0 20px #039712, 0 0 30px#039712,
+      0 0 20px #039712, 0 0 30px #039712, 0 0 20px #349f3f, 0 0 70px #349f3f;
   }
 
   100% {
     /* margin-left: 200%; */
-    text-shadow: 0 0 5px #fff, 0 0 10px #ff4d4d, 0 0 15px #ff4da6,
-      0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6;
+    text-shadow: 0 0 5px #039712, 0 0 10px #039712, 0 0 15px #349f3f,
+      0 0 20px #349f3f, 0 0 25px #039712, 0 0 30px #039712, 0 0 35px #039712;
   }
 }
 @keyframes templateGLOW2 {
@@ -108,16 +109,33 @@ h1 {
   }
 }
 h2 {
+  padding-left: 5vw;
+  padding-right: 5vw;
   font-size: 3.2em;
   line-height: 1.1;
-  color: #039712;
-  animation: templateGLOW2 0.3s infinite;
+  color: #76f483;
 
   text-shadow: #039712 0 0 10px;
-  // margin-top: 25vh;
+}
+.box2 {
+  padding-top: 100px;
+}
+@keyframes templateGLOW3 {
+  0% {
+    /* margin-left: 0%; */
+    text-shadow: #349f3f 0 0 20px;
+  }
+
+  99% {
+    /* margin-left: 200%; */
+    text-shadow: #039712 0 0 20px;
+  }
+  100% {
+    text-shadow: none;
+  }
 }
 .box {
-  height: 60vh;
+  height: 80vh;
 }
 .box3 {
   height: 30vh;
@@ -156,7 +174,7 @@ button:focus-visible {
   // border: solid #f2e753 2px;
 }
 .resultWrapper {
-  height: 200vh;
+  height: 100vh;
   // border: solid #f253e2 2px;
 }
 
@@ -215,31 +233,75 @@ button:focus-visible {
   }
 }
 #resultHeading {
-  margin-top: 5vh;
+  padding-top: 0vh;
+  margin-bottom: 0;
+}
+#resultHorse {
+  text-align: center;
+  margin-top: 20px;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: medium;
+  color: #ffffff;
+}
+.goBack {
+  display: block;
+  background-color: rgb(0, 0, 0, 0);
+  margin: 0 auto;
+  position: relative;
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #039712;
+  animation: templateGLOW3 0.3s infinite;
+  font-weight: 900;
+  padding: 2vh;
+}
+.cubeGrid {
+  // border: #0400e6 1px solid;
+  display: flex;
+  justify-content: center;
+  height: 380px;
+  overflow: hidden;
+  img {
+    justify-self: flex-end;
+    align-self: flex-end;
+    display: block;
+    position: relative;
+    fill: rgb(255, 255, 255);
+    height: 65px;
+  }
 }
 
 // test 3d box of doom
 .scene {
-  width: 200px;
-  height: 200px;
-  margin: 80px;
-  perspective: 600px;
+  // border: #e60000 1px solid;
+  margin: 100px 0px 50px 100px;
+  padding-left: 120px;
+  // margin-bottom: 100px;
+  perspective: 1000px;
 }
 
 .cube {
-  width: 160px;
-  height: 200px;
+  // width: 160px;
+  // height: 200px;
   position: relative;
   transform-style: preserve-3d;
   animation: CUBE3D 4s infinite linear;
+
+  p {
+    font-weight: 900;
+    font-size: 12px;
+    margin-top: 70%;
+    text-align: left;
+  }
 }
 @keyframes CUBE3D {
   0% {
-    transform: rotateY(0deg) rotateZ(10deg);
+    transform: rotateY(0deg) rotateZ(5deg);
   }
 
   100% {
-    transform: rotateY(360deg) rotateZ(10deg);
+    transform: rotateY(360deg) rotateZ(5deg);
   }
 }
 
@@ -248,7 +310,7 @@ button:focus-visible {
   width: 150px;
   height: 150px;
   // border: 2px solid black;
-  line-height: 200px;
+
   font-size: 40px;
   font-weight: bold;
   color: white;
@@ -258,43 +320,30 @@ button:focus-visible {
 .cube__face--front {
   background: hsla(0, 0%, 0%, 0.7);
   box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-.cube__face--right {
-  background: hsla(0, 0%, 0%, 0.7);
-  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-.cube__face--back {
-  background: hsla(0, 0%, 0%, 0.7);
-  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-.cube__face--left {
-  background: hsla(0, 0%, 0%, 0.7);
-  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-.cube__face--top {
-  background: hsla(0, 0%, 0%, 0.7);
-  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-.cube__face--bottom {
-  background: hsla(0, 0%, 0%, 0.7);
-  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
-}
-
-.cube__face--front {
   transform: rotateY(0deg) translateZ(100px);
 }
 .cube__face--right {
+  background: hsla(0, 0%, 0%, 0.7);
+  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
   transform: rotateY(90deg) translateZ(100px);
 }
 .cube__face--back {
+  background: hsla(0, 0%, 0%, 0.7);
+  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
   transform: rotateY(180deg) translateZ(100px);
 }
 .cube__face--left {
+  background: hsla(0, 0%, 0%, 0.7);
+  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
   transform: rotateY(-90deg) translateZ(100px);
 }
 .cube__face--top {
+  background: hsla(0, 0%, 0%, 0.7);
+  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
   transform: rotateX(90deg) translateZ(100px);
 }
 .cube__face--bottom {
+  background: hsla(0, 0%, 0%, 0.7);
+  box-shadow: rgb(255, 0, 0) 0 0 40px 20px;
   transform: rotateX(-90deg) translateZ(100px);
 }
