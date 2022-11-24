@@ -91,6 +91,7 @@ function Form(props) {
       const kilograms = Math.floor(amount / 1000);
       const grams = amount % 1000;
 
+      props.setOutput(kilograms);
       return {
         kilograms: kilograms,
         grams: grams,
@@ -106,9 +107,6 @@ function Form(props) {
     });
 
     props.setData(nextData);
-
-
-    props.setOutput(totalAmount);
   }
 
   function popNumber() {
