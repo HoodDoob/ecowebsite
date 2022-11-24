@@ -11,7 +11,7 @@ function FormLayout(props) {
   const [tiktokInput, setTiktokInput] = useState();
   const [streamingInput, setStreamingInput] = useState();
   const [emailInput, setEmailInput] = useState();
-
+  const [heightInput, setHeightInput] = useState();
 
   function formCalculate() {
     setFormFirstState(!formFirstState);
@@ -35,13 +35,22 @@ function FormLayout(props) {
             exit={{ x: "-150%", opacity: 1, scale: 1 }}
             initial={{ x: "-150%", opacity: 1, scale: 1 }}
           >
-            <Form setData={props.setData} data={props.data}
-            setInstaInput={setInstaInput} instaInput={instaInput} 
-            setTiktokInput={setTiktokInput} tiktokInput={tiktokInput}
-            setStreamingInput={setStreamingInput} streamingInput={streamingInput}
-            setEmailInput={setEmailInput} emailInput={emailInput}
-            setOutput={setOutput} 
-            formCalculate={formCalculate} />
+            <Form
+              setData={props.setData}
+              data={props.data}
+              setInstaInput={setInstaInput}
+              instaInput={instaInput}
+              setTiktokInput={setTiktokInput}
+              tiktokInput={tiktokInput}
+              setStreamingInput={setStreamingInput}
+              streamingInput={streamingInput}
+              setEmailInput={setEmailInput}
+              emailInput={emailInput}
+              setHeightInput={setHeightInput}
+              heightInput={heightInput}
+              setOutput={setOutput}
+              formCalculate={formCalculate}
+            />
           </motion.div>{" "}
         </AnimatePresence>
       ) : (
@@ -59,7 +68,11 @@ function FormLayout(props) {
               transition: { duration: 0.5 },
             }}
           >
-            <Results data={props.data} output={output} formCalculate={formCalculate} />
+            <Results
+              data={props.data}
+              output={output}
+              formCalculate={formCalculate}
+            />
           </motion.div>
         </AnimatePresence>
       )}

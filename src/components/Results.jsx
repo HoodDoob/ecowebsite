@@ -10,7 +10,7 @@ function Results(props) {
   return (
     <div>
       <h2 className="templateGLOW" id="resultHeading">
-        Your yearly CO2 footprint:
+        Your yearly CO2 footprint, compared to the Cube of Doom®:
       </h2>
       <div className="cubeGrid">
         <img
