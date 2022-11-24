@@ -190,7 +190,7 @@ button:focus-visible {
 }
 .resultWrapper::before {
   content: "";
-  background-image: url("theguy.webp");
+  background-image: url("/public/theGuy.webp");
   background-size: cover;
   position: absolute;
   top: 0px;
