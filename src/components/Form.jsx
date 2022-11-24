@@ -162,6 +162,7 @@ function Form(props) {
           id="form-email"
           placeholder="How many emails have you got in your inbox?"
           onInput={popNumber}
+          value="69"
         />
       </div>
       {buttonVisible && (
