@@ -30,18 +30,18 @@ function Results(props) {
   return (
     <div>
       <h2 id="resultHeading"> Your total CO2 footprint:</h2>
-
-      <div className="scene">
-        <div className="cube">
-          <div className="cube__face cube__face--front">935kg</div>
-          <div className="cube__face cube__face--back">935kg</div>
-          <div className="cube__face cube__face--right">935kg</div>
-          <div className="cube__face cube__face--left">935kg</div>
-          <div className="cube__face cube__face--top">935kg</div>
-          <div className="cube__face cube__face--bottom">935kg</div>
+      <div className="cubeGrid">
+        <div className="scene">
+          <div className="cube">
+            <div className="cube__face cube__face--front">935kg</div>
+            <div className="cube__face cube__face--back">935kg</div>
+            <div className="cube__face cube__face--right">935kg</div>
+            <div className="cube__face cube__face--left">935kg</div>
+            <div className="cube__face cube__face--top">935kg</div>
+            <div className="cube__face cube__face--bottom">935kg</div>
+          </div>
         </div>
       </div>
-
       <button onClick={() => props.formCalculate()}>Go back</button>
       {/* <button onClick={testCube1}></button> */}
     </div>
