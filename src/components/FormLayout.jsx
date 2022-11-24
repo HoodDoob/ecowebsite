@@ -7,6 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 function FormLayout(props) {
   const [formFirstState, setFormFirstState] = useState(true);
   const [output, setOutput] = useState();
+  const [instaInput, setInstaInput] = useState();
+  const [tiktokInput, setTiktokInput] = useState();
+  const [streamingInput, setStreamingInput] = useState();
+  const [emailInput, setEmailInput] = useState();
 
 
   function formCalculate() {
@@ -31,7 +35,13 @@ function FormLayout(props) {
             exit={{ x: "-150%", opacity: 1, scale: 1 }}
             initial={{ x: "-150%", opacity: 1, scale: 1 }}
           >
-            <Form setData={props.setData} setOutput={setOutput} data={props.data} formCalculate={formCalculate} />
+            <Form setData={props.setData} data={props.data}
+            setInstaInput={setInstaInput} instaInput={instaInput} 
+            setTiktokInput={setTiktokInput} tiktokInput={tiktokInput}
+            setStreamingInput={setStreamingInput} streamingInput={streamingInput}
+            setEmailInput={setEmailInput} emailInput={emailInput}
+            setOutput={setOutput} 
+            formCalculate={formCalculate} />
           </motion.div>{" "}
         </AnimatePresence>
       ) : (
