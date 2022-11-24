@@ -176,6 +176,17 @@ button:focus-visible {
   height: 100vh;
   // border: solid #f253e2 2px;
 }
+.resultWrapper::before {
+  content: "";
+  background-image: url("./src/assets/theguy.webp");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.1;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -261,6 +272,7 @@ button:focus-visible {
   justify-content: center;
   height: 380px;
   overflow: hidden;
+
   img {
     justify-self: flex-end;
     align-self: flex-end;
