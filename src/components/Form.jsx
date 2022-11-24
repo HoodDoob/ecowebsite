@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function Form(props) {
   const [buttonVisible, setButtonVisible] = useState(false);
+
   const theForm = useRef(null);
   /*     const array = [{
         name: "",
@@ -105,12 +106,16 @@ function Form(props) {
     });
 
     props.setData(nextData);
+
+
+    props.setOutput(totalAmount);
   }
 
   function popNumber() {
     setButtonVisible(true);
     console.log("pump up the button");
   }
+
   return (
     <form ref={theForm} onSubmit={calculate} className="inputForm">
       <div className="form-control">

@@ -1,22 +1,23 @@
 import React from "react";
+import {useState} from 'react';
 
 function Results(props) {
   console.log(props.data);
 
-  // function findTotal() {
-  props.data.filter((object) => {
-    const amountTotal = object.amount;
-    const timeTotal = object.time;
-    if (object.name === "total") {
-      let kilograms = amountTotal.grams;
-      console.log(kilograms);
-      // console.log(amountTotal, timeTotal);
-      return { amountTotal, timeTotal };
-    }
-  });
-  // }
+/*   function calculating() {  
+        data.filter((object) => {
+        const amountTotal = object.amount;
+        const timeTotal = object.time;
+        if (object.name === "total") {
+          let kilograms = amountTotal.grams;
 
-  // findTotal();
+          setOutput(() => {
+          return kilograms;
+          })
+        }
+      });
+    } */
+
   function testCube1() {
     const cube = document.querySelector(".cube");
     const face = document.querySelectorAll(".cube__face");
@@ -29,7 +30,7 @@ function Results(props) {
   }
   return (
     <div>
-      <h2 id="resultHeading"> Your total CO2 footprint:</h2>
+      <h2 id="resultHeading">{props.output}</h2>
       <div className="cubeGrid">
         <div className="scene">
           <div className="cube">
