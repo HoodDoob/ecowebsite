@@ -183,7 +183,7 @@ function Form(props) {
           type="number"
           name="height"
           id="form-height"
-          placeholder="How tall are you"
+          placeholder="How tall are you?"
           onInput={popNumber}
         />
       </div>
