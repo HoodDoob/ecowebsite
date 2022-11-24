@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function Form(props) {
   const [buttonVisible, setButtonVisible] = useState(false);
+
   const theForm = useRef(null);
   /*     const array = [{
         name: "",
@@ -90,6 +91,7 @@ function Form(props) {
       const kilograms = Math.floor(amount / 1000);
       const grams = amount % 1000;
 
+      props.setOutput(kilograms);
       return {
         kilograms: kilograms,
         grams: grams,
@@ -111,6 +113,7 @@ function Form(props) {
     setButtonVisible(true);
     console.log("pump up the button");
   }
+
   return (
     <form ref={theForm} onSubmit={calculate} className="inputForm">
       <div className="form-control">

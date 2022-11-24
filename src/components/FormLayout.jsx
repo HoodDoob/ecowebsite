@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function FormLayout(props) {
   const [formFirstState, setFormFirstState] = useState(true);
+  const [output, setOutput] = useState();
+
 
   function formCalculate() {
     setFormFirstState(!formFirstState);
@@ -29,7 +31,7 @@ function FormLayout(props) {
             exit={{ x: "-150%", opacity: 1, scale: 1 }}
             initial={{ x: "-150%", opacity: 1, scale: 1 }}
           >
-            <Form setData={props.setData} formCalculate={formCalculate} />
+            <Form setData={props.setData} setOutput={setOutput} data={props.data} formCalculate={formCalculate} />
           </motion.div>{" "}
         </AnimatePresence>
       ) : (
@@ -47,7 +49,7 @@ function FormLayout(props) {
               transition: { duration: 0.5 },
             }}
           >
-            <Results data={props.data} formCalculate={formCalculate} />
+            <Results data={props.data} output={output} formCalculate={formCalculate} />
           </motion.div>
         </AnimatePresence>
       )}
