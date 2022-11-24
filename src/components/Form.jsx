@@ -30,7 +30,7 @@ function Form(props) {
       instagramYearly = 0;
       instagramCo2 = 0;
     }
-    props.setInstaInput(theForm.current.elements.instagram.value)
+    props.setInstaInput(theForm.current.elements.instagram.value);
 
     let tiktokYearly = parseInt(theForm.current.elements.tiktok.value) * 365;
     let tiktokCo2 = tiktokYearly * 2.63;
@@ -45,7 +45,7 @@ function Form(props) {
       tiktokYearly = 0;
       tiktokCo2 = 0;
     }
-    props.setTiktokInput(theForm.current.elements.tiktok.value)
+    props.setTiktokInput(theForm.current.elements.tiktok.value);
 
     let streamingYearly =
       parseInt(theForm.current.elements.streaming.value) * 365;
@@ -61,7 +61,7 @@ function Form(props) {
       streamingYearly = 0;
       streamingCo2 = 0;
     }
-    props.setStreamingInput(theForm.current.elements.streaming.value)
+    props.setStreamingInput(theForm.current.elements.streaming.value);
 
     let email = parseInt(theForm.current.elements.email.value);
     let emailCo2 = email * 0.3;
@@ -76,8 +76,8 @@ function Form(props) {
       email = 0;
       emailCo2 = 0;
     }
-    props.setEmailInput(theForm.current.elements.email.value)
-
+    props.setEmailInput(theForm.current.elements.email.value);
+    props.setHeightInput(theForm.current.elements.height.value);
     function minutesToHours(time) {
       const days = Math.floor(time / 60 / 24);
       const hours = days % 24;
@@ -174,6 +174,20 @@ function Form(props) {
           onInput={popNumber}
         />
       </div>
+      <div className="form-control">
+        <label htmlFor="form-height">
+          Your height<span>(in cm)</span>
+        </label>
+        <input
+          defaultValue={props.heightInput}
+          type="number"
+          name="height"
+          id="form-height"
+          placeholder="How tall are you"
+          onInput={popNumber}
+        />
+      </div>
+
       {buttonVisible && (
         <motion.div
           key="otp"

@@ -18,6 +18,18 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield; /* Firefox */
+}
 
 a {
   font-weight: 500;
@@ -109,8 +121,8 @@ h1 {
   }
 }
 h2 {
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
   font-size: 3.2em;
   line-height: 1.1;
   color: #76f483;
@@ -176,6 +188,17 @@ button:focus-visible {
   height: 100vh;
   // border: solid #f253e2 2px;
 }
+.resultWrapper::before {
+  content: "";
+  background-image: url("./src/assets/theguy.webp");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.15;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -232,7 +255,6 @@ button:focus-visible {
   }
 }
 #resultHeading {
-  padding-top: 0vh;
   margin-bottom: 0;
 }
 #resultHorse {
@@ -261,6 +283,7 @@ button:focus-visible {
   justify-content: center;
   height: 380px;
   overflow: hidden;
+
   img {
     justify-self: flex-end;
     align-self: flex-end;

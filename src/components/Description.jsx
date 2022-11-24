@@ -3,15 +3,15 @@ import { useInView } from "react-intersection-observer";
 import { React, useEffect, useRef, forwardRef } from "react";
 
 const variant1 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   hidden: { opacity: 0, scale: 0 },
 };
 const variant2 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   hidden: { opacity: 0, scale: 0 },
 };
 const variant3 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   hidden: { opacity: 0, scale: 0 },
 };
 
@@ -91,9 +91,9 @@ const BoxThree = ({ desc }) => {
 export default function Description(props) {
   return (
     <div ref={props.ref}>
-      <BoxOne desc="Hello dear internet conneseuir. Have you ever wondered what is the consequence of your online activity?" />
+      <BoxOne desc="Hello dear internet connoisseur. Have you ever wondered what is the consequence of your online activity?" />
       <BoxTwo desc="You can't run away from being responsible, your actions will have consequences in the near future" />
-      <BoxThree desc="Now, let's see how you behave in the digital realm 🙂" />
+      <BoxThree desc="Now, let's see how do you behave in the digital realm 🙂" />
     </div>
   );
 }

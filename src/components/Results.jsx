@@ -7,20 +7,16 @@ function Results(props) {
   console.log(someValue);
   const myStyle = { height: someValue };
 
-  function testCube1() {
-    const cube = document.querySelector(".cube");
-    const face = document.querySelectorAll(".cube__face");
-
-    cube.classList.add("show-top");
-  }
   return (
     <div>
-      <h2 id="resultHeading">Your total CO2 footprint</h2>
+      <h2 className="templateGLOW" id="resultHeading">
+        Your yearly CO2 footprint, compared to the Cube of Doom®:
+      </h2>
       <div className="cubeGrid">
         <img
           style={myStyle}
           id="horseman"
-          src="../src/assets/manOnAHorseWhite.svg"
+          src="./src/assets/manOnAHorseWhite.svg"
           alt="horseman"
         ></img>
         <div className="scene">
@@ -46,8 +42,8 @@ function Results(props) {
       </div>
       <h2 id="resultHorse">
         The Cube of Doom® represents the size of your personal carbon footprint.
-        It is presented here in a real scale comapred to your size, sitting on a
-        horse.
+        It is presented here in a real scale, compared to your size, sitting on
+        a horse.
       </h2>
 
       <button onClick={() => props.formCalculate()} className="goBack">
