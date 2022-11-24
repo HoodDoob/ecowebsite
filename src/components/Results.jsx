@@ -7,24 +7,12 @@ function Results(props) {
   console.log(someValue);
   const myStyle = { height: someValue };
 
-  /*   function calculating() {  
-        data.filter((object) => {
-        const amountTotal = object.amount;
-        const timeTotal = object.time;
-        if (object.name === "total") {
-          let kilograms = amountTotal.grams;
+  function testCube1() {
+    const cube = document.querySelector(".cube");
+    const face = document.querySelectorAll(".cube__face");
 
-          setOutput(() => {
-          return kilograms;
-          })
-        }
-      });
-    } */
-
-  // function testCube1() {
-  //   document.getElementById("horseman").height = "50px";
-  // }
-  // testCube1();
+    cube.classList.add("show-top");
+  }
   return (
     <div>
       <h2 id="resultHeading">Your total CO2 footprint</h2>

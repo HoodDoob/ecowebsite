@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function Form(props) {
   const [buttonVisible, setButtonVisible] = useState(false);
-
   const theForm = useRef(null);
   /*     const array = [{
         name: "",
@@ -31,6 +30,7 @@ function Form(props) {
       instagramYearly = 0;
       instagramCo2 = 0;
     }
+    props.setInstaInput(theForm.current.elements.instagram.value)
 
     let tiktokYearly = parseInt(theForm.current.elements.tiktok.value) * 365;
     let tiktokCo2 = tiktokYearly * 2.63;
@@ -45,6 +45,7 @@ function Form(props) {
       tiktokYearly = 0;
       tiktokCo2 = 0;
     }
+    props.setTiktokInput(theForm.current.elements.tiktok.value)
 
     let streamingYearly =
       parseInt(theForm.current.elements.streaming.value) * 365;
@@ -60,6 +61,7 @@ function Form(props) {
       streamingYearly = 0;
       streamingCo2 = 0;
     }
+    props.setStreamingInput(theForm.current.elements.streaming.value)
 
     let email = parseInt(theForm.current.elements.email.value);
     let emailCo2 = email * 0.3;
@@ -74,6 +76,7 @@ function Form(props) {
       email = 0;
       emailCo2 = 0;
     }
+    props.setEmailInput(theForm.current.elements.email.value)
 
     function minutesToHours(time) {
       const days = Math.floor(time / 60 / 24);
@@ -121,6 +124,7 @@ function Form(props) {
           Instagram usage <span>(min / day)</span>
         </label>
         <input
+          defaultValue={props.instaInput}
           type="number"
           name="instagram"
           id="form-instagram"
@@ -134,6 +138,7 @@ function Form(props) {
           TikTok usage<span>(min / day)</span>
         </label>
         <input
+          defaultValue={props.tiktokInput}
           type="number"
           name="tiktok"
           id="form-tiktok"
@@ -147,6 +152,7 @@ function Form(props) {
           Streaming service usage<span>(min / day)</span>
         </label>
         <input
+          defaultValue={props.streamingInput}
           type="number"
           name="streaming"
           id="form-streaming"
@@ -160,12 +166,12 @@ function Form(props) {
           Unread emails<span>(number of emails)</span>
         </label>
         <input
+          defaultValue={props.emailInput}
           type="number"
           name="email"
           id="form-email"
           placeholder="How many emails have you got in your inbox?"
           onInput={popNumber}
-          value="69"
         />
       </div>
       {buttonVisible && (
